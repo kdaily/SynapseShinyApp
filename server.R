@@ -22,7 +22,7 @@ shinyServer(function(input, output, session) {
   foo <- observeEvent(input$cookie, {
     
     synLogin(sessionToken=input$cookie)
-    
+    message(sprintf("Welcome, %s", synGetUserProfile()$userName))
     output$title <- renderUI({
       titlePanel(sprintf("Welcome, %s", synGetUserProfile()$userName))
     })
